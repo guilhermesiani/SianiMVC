@@ -1,7 +1,7 @@
 <?php
 
 // Sempre use barra (/) no final das URLs
-define('URL', 'http://localhost/~guilhermesiani/mvc/');
+define('URL', 'http://localhost/meuprojeto');
 define('LIBS', 'libs/');
 
 // Configuração com Banco de Dados

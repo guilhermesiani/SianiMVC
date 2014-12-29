@@ -1,6 +1,6 @@
 RewriteEngine on
 
-RewriteBase /meuprojeto/
+RewriteBase /~guilhermesiani/SianiMVC/
 
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteCond %{REQUEST_FILENAME} -f

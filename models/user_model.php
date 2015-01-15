@@ -28,7 +28,7 @@ class User_Model extends \Libs\Model
 	{
 		$this->db->insert('user', array(
 			'username' => $data['username'],
-			'password' => Hash::create('sha256', $data['password'], HASH_PASSWORD_KEY),
+			'password' => \Libs\Hash::create('sha256', $data['password'], HASH_PASSWORD_KEY),
 			'role' => $data['role']
 		));	
 	}
@@ -37,7 +37,7 @@ class User_Model extends \Libs\Model
 	{
 		$postData = array(
 			'username' => $data['username'],
-			'password' => Hash::create('sha256', $data['password'], HASH_PASSWORD_KEY),
+			'password' => \Libs\Hash::create('sha256', $data['password'], HASH_PASSWORD_KEY),
 			'role' => $data['role']
 		);
 

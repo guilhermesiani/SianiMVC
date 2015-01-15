@@ -4,7 +4,7 @@ $(function() {
 
 		for(i = 0; i < o.length; i++)
 		{
-			$('#listInserts').append('<div>' + o[i].text + '<a class="del" rel="'+ o[i].id +'" href="#">X</a></div>');
+			$('#listInserts').append('<div>' + o[i].text + '<a class="del" rel="'+ o[i].dataid +'" href="#">X</a></div>');
 		}
 
 		$('.del').live('click', function() {

@@ -31,7 +31,9 @@ class Dashboard_Model extends \Libs\Model
 	function xhrDeleteListing()
 	{
 		$id = (int)$_POST['id'];
+
+		echo $id;
 		
-		$this->db->delete('data', "id = $id");
+		$this->db->delete('data', "dataid = $id");
 	}
 }

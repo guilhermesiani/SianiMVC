@@ -65,7 +65,7 @@ class Bootstrap
 	public function error()
 	{
 		require 'controllers/error.php';
-		$controller = new Error();
+		$controller = new \Controllers\Error();
 		$controller->index();
 		return false;
 	}

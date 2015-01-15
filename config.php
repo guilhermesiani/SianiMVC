@@ -1,4 +1,5 @@
 <?php
+// Configuração do Fuso Horário
 date_default_timezone_set('America/Sao_Paulo');
 
 // Sempre use barra (/) no final das URLs

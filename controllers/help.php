@@ -18,18 +18,4 @@ class Help extends \Libs\Controller
 	{
 		$this->view->render('help/index');
 	}
-
-	public function other()
-	{
-		if(isset($_FILES)) {
-			$this->image->folder = 'clientes';
-			try { 
-				$image = $this->image->upload($_FILES);
-
-				print_r($image);
-			} catch(Exception $e) {
-				echo $e->getMessage();
-			}
-		}
-	}
 }

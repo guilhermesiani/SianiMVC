@@ -32,6 +32,7 @@
 	<?php if(\Libs\Session::get('loggedIn') == true): ?>
 		<a href="<?php echo URL; ?>dashboard">Dashboard</a>	
 		<a href="<?php echo URL; ?>note">Notes</a>	
+		<a href="<?php echo URL; ?>image">Image</a>	
 		<?php if(\Libs\Session::get('role') == 'owner'): ?>
 			<a href="<?php echo URL; ?>user">Users</a>	
 		<?php endif; ?>

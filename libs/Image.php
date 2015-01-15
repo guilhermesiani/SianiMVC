@@ -31,29 +31,30 @@ class Image
 	{
 		$fileExtension = strtolower(end(explode('.', $file['image']['name'])));
 
-		if(!in_array($fileExtension, $this->extension))
-			throw new Exception("Este arquivo não possui uma das extensões: jpg, png ou gif.");
-		elseif($file['image']['size'] > $this->size)
-			throw new Exception("O arquivo ultrapassou o limite máximo de {$this->size} bytes");
+		if (!in_array($fileExtension, $this->extension))
+			throw new \Exception("Este arquivo não possui uma das extensões: jpg, png ou gif.");
+		elseif ($file['image']['size'] > $this->size)
+			throw new \Exception("O arquivo ultrapassou o limite máximo de {$this->size} bytes");
+
+		if (!is_dir($this->folder)) {
+			mkdir($this->folder);
+		}
 
 		$images = scandir($this->folder);
 		$filename = $file['image']['name'];
 		$i = 1;
 
-		while(in_array($filename, $images)) {
-			// PAREI AQUI!
-			$image = preg_replace($fileExtension, '', $filename);
-			echo $image;
-			die;
+		while (in_array($filename, $images)) {
+			$image = preg_replace('/\.' . $fileExtension . '/', '', $filename);
 			$filename = $image . '-' . $i . '.' . $fileExtension;
 			$i++;
 		}
 
-		if(preg_match('/\//', $this->folder)) {
+		if (preg_match('/\//', $this->folder)) {
 			$folders = explode('/', $this->folder);
 			$this->folder = NULL;
-			foreach($folders as $folder) {
-				if($folder != '') {
+			foreach ($folders as $folder) {
+				if ($folder != '') {
 					$this->folder .= $folder . '/';
 				}
 			}
@@ -68,13 +69,11 @@ class Image
 			'folder'	=> $this->folder
 		);
 
-		if(!is_dir($this->folder))
-			mkdir($this->folder);
-
-		if(move_uploaded_file($file['image']['tmp_name'], $uploadFile))
+		if (move_uploaded_file($file['image']['tmp_name'], $uploadFile)) {
 			return $data;
-		else
+		} else {
 			return false;		
+		}
 	}
 
 	/**

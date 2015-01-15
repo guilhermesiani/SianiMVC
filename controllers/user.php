@@ -1,5 +1,5 @@
 <?php
-namespace Controller;
+namespace Controllers;
 
 use Libs;
 
@@ -12,7 +12,7 @@ class User extends \Libs\Controller
 	public function __construct()
 	{
 		parent::__construct();
-		Auth::handLeLoggin();
+		\Util\Auth::handLeLoggin();
 	}
 
 	public function index()

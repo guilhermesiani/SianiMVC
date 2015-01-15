@@ -1,5 +1,5 @@
 <?php
-namespace Controller;
+namespace Controllers;
 
 use Libs;
 
@@ -12,7 +12,7 @@ class Note extends \Libs\Controller
 	public function __construct()
 	{
 		parent::__construct();
-		Auth::handLeLoggin();
+		\Util\Auth::handLeLoggin();
 		
 		$this->view->js = array('/dashboard/js/default.js');
 	}

@@ -1,5 +1,5 @@
 <?php
-namespace Controller;
+namespace Controllers;
 
 use Libs;
 
@@ -12,7 +12,7 @@ class Dashboard extends \Libs\Controller
 	function __construct()
 	{
 		parent::__construct();
-		Auth::handLeLoggin();
+		\Util\Auth::handLeLoggin();
 		
 		$this->view->js = array('/dashboard/js/default.js');
 	}
@@ -24,7 +24,7 @@ class Dashboard extends \Libs\Controller
 
 	function logout()
 	{
-		Session::destroy();
+		\Libs\Session::destroy();
 		header('location: '. URL .'login');
 		exit;
 	}

@@ -23,7 +23,7 @@ class Database extends \PDO
 	 * @param constant $fetchMode Modo de captura de dados
 	 * return mixed
 	 */
-	public function select($sql, $array = array(), $fetchMode = PDO::FETCH_ASSOC)
+	public function select($sql, $array = array(), $fetchMode = \PDO::FETCH_ASSOC)
 	{
 		$sth = $this->prepare($sql);
 		foreach($array as $key => $value) {

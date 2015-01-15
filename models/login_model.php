@@ -21,7 +21,7 @@ class Login_Model extends \Libs\Model
 
 		$sth->execute(array(
 			':username' => $_POST['username'],
-			':password' => Hash::create('sha256', $_POST['password'], HASH_PASSWORD_KEY)
+			':password' => \Libs\Hash::create('sha256', $_POST['password'], HASH_PASSWORD_KEY)
 		));
 
 		$data = $sth->fetch();
@@ -30,10 +30,10 @@ class Login_Model extends \Libs\Model
 
 		if($count > 0) {
 			// login
-			Session::init();
-			Session::set('role', $data['role']);
-			Session::set('loggedIn', true);
-			Session::set('userid', $data['userid']);
+			\Libs\Session::init();
+			\Libs\Session::set('role', $data['role']);
+			\Libs\Session::set('loggedIn', true);
+			\Libs\Session::set('userid', $data['userid']);
 			header('location: ../dashboard');
 		} else {
 			header('location: ../login');

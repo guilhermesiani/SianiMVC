@@ -17,8 +17,6 @@ class Index extends \Libs\Controller
 	public function index()
 	{
 		// echo Hash::create('sha256', 'jesse', HASH_PASSWORD_KEY);
-
-		// $this->model->teste();
 		$this->view->render('index/index');		
 	}
 	
